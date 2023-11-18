@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css?family=Modak");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* navbar css */
+.navbar {
+    width: 100%;
+    height: 10vh;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navbar a {
+    color: white; 
+    text-align: center; 
+    padding: 10px 12px; 
+    text-decoration: none; 
+    font-size: 1rem;
+}
+
+.navbar a:hover {
+    background-color: #989898; 
+    color: black; 
+    border-radius: 30px;
+}
+
+/* header css */
+.header {
+    width: 100%; 
+    height: 90vh; 
+    background-color: #3f3f3f; 
+    position: relative;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://www.icegif.com/wp-content/uploads/2022/12/icegif-286.gif'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.title {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    font-size: 300px;
+    font-family: 'Modak', sans-serif;
+    background: -webkit-linear-gradient(45deg, rgb(0, 255, 21), yellow, rgb(170, 0, 255), rgb(25, 0, 255));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent; 
+}
+
+  /* grid css */
+  
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-gap: 1rem;
+    padding: 1rem;
+    background-color: #272727;
+}
+
+.grid-item {
+    position: relative; 
+    margin: 1.5rem;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: auto;
+    opacity: 0;
+    transform: translateX(-100%);
+    animation-duration: 1s; 
+    animation-fill-mode: forwards; 
+}
+  
+.grid-item img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 30px;  
+    transition: transform 0.3s ease;
+    transition: filter 0.5s ease;
+}
+
+.grid-item img:hover {
+    filter: blur(8px) brightness(45%);
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;;
+}
+
+.grid-item .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease;
+}
+  
+.grid-item:hover .title {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* on scroll anim */
+
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .visible {
+    animation-name: slideInFromLeft; 
+  }
+
+/* footer css */
+
+.footer {
+    width: 100%;
+    height: 5rem;
+    background-color: #333;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* responsivness */
+
+@media screen and (max-width: 1240px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 0rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
+    }
+    .navbar {
+        height: auto;
+        flex-direction: column;
+      }
+    
+      .navbar a {
+        padding: 10px 20px;
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box; 
+      }
+    
+      .header {
+        height: 50vh;
+      }
+    
+      .title {
+        font-size: 150px;
+        left: 10px; 
+      }
+}
+
+@media screen and (max-width: 725px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-gap: 2rem;
+    }
+
+    .header {
+        height: 20vh; 
+      }
+    
+      .title {
+        font-size: 50px; 
+        left: 5px; 
+      }
+    
+      .navbar a {
+        padding: 5px 10px; 
+      }
+}
